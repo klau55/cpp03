@@ -27,6 +27,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other) {
         this->_hitPoints = other._hitPoints;
         this->_energyPoints = other._energyPoints;
         this->_attackDamage = other._attackDamage;
+        // this = other
     }
     std::cout << "ClapTrap copy assignment operator called for " 
               << _name << std::endl;
@@ -64,6 +65,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
                   << std::endl;
         return;
     }
+    // fddgdfgdfgddfggdfg proverki
     _hitPoints -= amount;
     std::cout << "ClapTrap " << _name << " takes " 
               << amount << " points of damage! ";
