@@ -12,13 +12,12 @@ private:
     unsigned int         _attackDamage;
 
 public:
-    ClapTrap();                              // Default constructor
-    ClapTrap(const std::string &name);       // Name constructor
-    ClapTrap(const ClapTrap &other);         // Copy constructor
-    ClapTrap &operator=(const ClapTrap &other); // Copy assignment operator
-    ~ClapTrap();                             // Destructor
+    ClapTrap();
+    ClapTrap(const std::string &name);
+    ClapTrap(const ClapTrap &other);
+    ClapTrap &operator=(const ClapTrap &other);
+    ~ClapTrap();
 
-    // Member functions
     void attack(const std::string &target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);

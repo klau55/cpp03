@@ -11,23 +11,24 @@ int main() {
     
     // Demonstrate attacks
     clap.attack("BOT-9000");
-    bot.takeDamage(0);  // Default attackDamage is 0, so no actual damage.
+    bot.takeDamage(0);  // no actual damage.
 
     // Give clap a few hits to show takeDamage
     clap.takeDamage(-5000);
-    // -5000
+
 
     // Attempt repairs
     clap.beRepaired(-1);
     clap.beRepaired(2);
+    clap.beRepaired(2);
     
     // Exhaust energy
-    // for (int i = 0; i < 10; i++) {
-    //     bot.attack("CL4P-TP");
-    // }
+    for (int i = 0; i < 10; i++) {
+        bot.attack("CL4P-TP");
+    }
 
     // Try to repair when out of energy
-    bot.beRepaired(4000000000);
+    bot.beRepaired(2);
 
     return 0;
 }

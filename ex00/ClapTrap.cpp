@@ -15,7 +15,6 @@ ClapTrap::ClapTrap(const std::string &name)
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other) {
-    // Use the copy assignment operator to copy attributes
     *this = other;
     std::cout << "ClapTrap copy constructor called for " 
               << _name << std::endl;
@@ -27,7 +26,6 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other) {
         this->_hitPoints = other._hitPoints;
         this->_energyPoints = other._energyPoints;
         this->_attackDamage = other._attackDamage;
-        // this = other
     }
     std::cout << "ClapTrap copy assignment operator called for " 
               << _name << std::endl;
@@ -59,13 +57,17 @@ void ClapTrap::attack(const std::string &target) {
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
+    if (static_cast<int>(amount) < 0) {
+        std::cout << "ClapTrap " << _name 
+                  << " ignores negative damage request." << std::endl;
+        return;
+    }
     if (_hitPoints <= 0) {
         std::cout << "ClapTrap " << _name 
                   << " is already out of hit points and can't take more damage."
                   << std::endl;
         return;
     }
-    // fddgdfgdfgddfggdfg proverki
     _hitPoints -= amount;
     std::cout << "ClapTrap " << _name << " takes " 
               << amount << " points of damage! ";
@@ -79,6 +81,11 @@ void ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
+    if (static_cast<int>(amount) < 0) {
+        std::cout << "ClapTrap " << _name 
+                  << " ignores negative repair request." << std::endl;
+        return;
+    }
     if (_hitPoints <= 0) {
         std::cout << "ClapTrap " << _name 
                   << " cannot be repaired (it is destroyed)!"
